@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% block title %}Login | Anonyms for RIT{% endblock %}
+{% block content %}
+
+<section class="app-section auth-page">
+    <div class="container">
+        <div class="auth-card app-card p-4 p-sm-5">
+            <p class="eyebrow mb-2">Welcome back</p>
+            <h1 class="fs-3 fw-bold mb-2">Sign in</h1>
+            <p class="text-secondary mb-4">Continue to your anonymous campus space.</p>
+        
+            <form action="" method="POST" novalidate>
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" autocomplete="email" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                
+                <button type="submit" class="btn btn-app-primary w-100">Continue</button>
+                
+                {% if error %}
+                <div class="auth-error mt-3 p-3 text-center small fw-semibold">
+                    {{ error }}
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

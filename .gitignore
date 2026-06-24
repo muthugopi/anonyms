@@ -1,0 +1,38 @@
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+venv/
+env/
+ENV/
+.venv/
+
+*.log
+db.sqlite3
+media/
+.env
+.env.*
+
+# Migrations
+# */migrations/*
+# !*/migrations/__init__.py
+
+staticfiles/
+
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+build/
+dist/
+*.egg-info/
+.ipynb_checkpoints/
+*.sql
+secret_key.txt

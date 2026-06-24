@@ -1,0 +1,259 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<header class="container text-center py-5 my-5" id="home">
+    <div class="row justify-content-center py-5">
+        <div class="col-lg-8">
+            <h1 class="display-3 fw-bold text-dark mb-3">Anonyms for RIT</h1>
+            <p class="lead text-secondary mb-4">A safe space for Ramco Institute of Technology students to share thoughts, opinions, and experiences anonymously.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="#about" class="btn btn-dark rounded-pill px-4 py-2 fw-semibold">Get Started</a>
+                <a href="#features" class="btn btn-outline-dark rounded-pill px-4 py-2 fw-semibold">Learn More</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="about" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold text-dark mb-2">Why Anonyms?</h2>
+            <p class="text-secondary">Built exclusively for the RIT community to foster open and honest dialogue.</p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 text-dark mb-3">Anonymous Discussions</h3>
+                        <p class="text-secondary card-text mb-0">Speak your mind without fear of judgment. Our platform ensures your identity remains entirely hidden while you interact with peers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 text-dark mb-3">Share Experiences</h3>
+                        <p class="text-secondary card-text mb-0">Whether it's academic stress, placement advice, or hostel life, find comfort in sharing and reading stories from fellow students.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 text-dark mb-3">Campus Feedback</h3>
+                        <p class="text-secondary card-text mb-0">Provide constructive criticism and honest feedback about campus facilities, teaching, and events to spark positive change.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 text-dark mb-3">Open Communication</h3>
+                        <p class="text-secondary card-text mb-0">Bridge the gap between students across different departments and years through transparent and unrestricted conversations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold text-dark mb-2">Platform Features</h2>
+            <p class="text-secondary">Everything you need for a secure and engaging community experience.</p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-inline-flex align-items-center justify-content-center p-3 bg-light bg-opacity-10 rounded-3 text-dark mb-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <h3 class="h5 text-dark mb-2">Anonymous Posting</h3>
+                        <p class="text-secondary mb-0 small">Post threads and replies with unique, temporary avatars to keep discussions flowing naturally while protecting identities.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-inline-flex align-items-center justify-content-center p-3 bg-light bg-opacity-10 rounded-3 text-dark mb-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <h3 class="h5 text-dark mb-2">Secure Authentication</h3>
+                        <p class="text-secondary mb-0 small">Verified via student email to ensure only valid RIT students can access the platform, keeping outsiders away.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-inline-flex align-items-center justify-content-center p-3 bg-light bg-opacity-10 rounded-3 text-dark mb-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="h5 text-dark mb-2">Student Community</h3>
+                        <p class="text-secondary mb-0 small">A dedicated space curated specifically for the culture, slang, and daily life of RITians.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-inline-flex align-items-center justify-content-center p-3 bg-light bg-opacity-10 rounded-3 text-dark mb-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        </div>
+                        <h3 class="h5 text-dark mb-2">Real-Time Discussions</h3>
+                        <p class="text-secondary mb-0 small">Experience instant updates, live typing indicators, and immediate notifications when someone replies to your thread.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-inline-flex align-items-center justify-content-center p-3 bg-light bg-opacity-10 rounded-3 text-dark mb-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3 class="h5 text-dark mb-2">Moderated Environment</h3>
+                        <p class="text-secondary mb-0 small">AI-assisted moderation and community reporting ensure the space remains safe and free from bullying and hate speech.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 h-100 p-4 rounded-4 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-inline-flex align-items-center justify-content-center p-3 bg-light bg-opacity-10 rounded-3 text-dark mb-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                        </div>
+                        <h3 class="h5 text-dark mb-2">Privacy First</h3>
+                        <p class="text-secondary mb-0 small">We do not track IP addresses for posts, and database entries are encrypted. Your privacy is our absolute priority.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="how-it-works" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold text-dark mb-2">How It Works</h2>
+            <p class="text-secondary">Getting started is simple and secure.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 border-start border-secondary border-opacity-25 ms-3 ps-4">
+                
+                <div class="position-relative mb-5">
+                    <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 p-4 rounded-4 shadow-sm">
+                        <h3 class="h5 text-dark mb-2"><span class="badge bg-light text-dark rounded-circle me-2">1</span> Sign Up</h3>
+                        <p class="text-secondary mb-0 small">Create an account using your official RIT student email address.</p>
+                    </div>
+                </div>
+
+                <div class="position-relative mb-5">
+                    <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 p-4 rounded-4 shadow-sm">
+                        <h3 class="h5 text-dark mb-2"><span class="badge bg-light text-dark rounded-circle me-2">2</span> Verify Identity</h3>
+                        <p class="text-secondary mb-0 small">Click the secure link sent to your academic email to verify you are a current student. Your email is only used for verification and is permanently detached from your posts.</p>
+                    </div>
+                </div>
+
+                <div class="position-relative mb-5">
+                    <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 p-4 rounded-4 shadow-sm">
+                        <h3 class="h5 text-dark mb-2"><span class="badge bg-light text-dark rounded-circle me-2">3</span> Join Discussions</h3>
+                        <p class="text-secondary mb-0 small">Browse various tags like 'Academics', 'Hostel', 'Placements', and 'General' to see what the campus is talking about.</p>
+                    </div>
+                </div>
+
+                <div class="position-relative">
+                    <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 p-4 rounded-4 shadow-sm">
+                        <h3 class="h5 text-dark mb-2"><span class="badge bg-light text-dark rounded-circle me-2">4</span> Share Anonymously</h3>
+                        <p class="text-secondary mb-0 small">Create your first thread or leave a comment. Your identity remains hidden behind a randomized username.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="statistics" class="py-5">
+    <div class="container">
+        <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 p-4 rounded-4">
+            <div class="row row-cols-2 row-cols-md-4 text-center g-4 py-3" id="counter-section">
+                <div class="col">
+                    <div class="display-5 fw-bold text-dark mb-1 stat-number" data-target="1200">0</div>
+                    <p class="text-secondary small mb-0">Total Students</p>
+                </div>
+                <div class="col">
+                    <div class="display-5 fw-bold text-dark mb-1 stat-number" data-target="350">0</div>
+                    <p class="text-secondary small mb-0">Active Discussions</p>
+                </div>
+                <div class="col">
+                    <div class="display-5 fw-bold text-dark mb-1 stat-number" data-target="4800">0</div>
+                    <p class="text-secondary small mb-0">Anonymous Posts</p>
+                </div>
+                <div class="col">
+                    <div class="display-5 fw-bold text-dark mb-1 stat-number" data-target="950">0</div>
+                    <p class="text-secondary small mb-0">Community Members</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="cta" class="py-5 text-center">
+    <div class="container">
+        <div class="card bg-secondary bg-opacity-10 border border-secondary border-opacity-25 p-5 rounded-4">
+            <div class="row justify-content-center py-4">
+                <div class="col-md-8 col-lg-6">
+                    <h2 class="display-5 fw-bold text-dark mb-3">Join the Conversation</h2>
+                    <p class="text-secondary lead mb-4">Be a part of the most honest community at Ramco Institute of Technology. Your voice matters, and it's time to let it be heard.</p>
+                    <a href="#" class="btn btn-light rounded-pill px-5 py-3 fw-bold">Get Started Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Intersection Observer to trigger counter rolling animation cleanly without custom style states
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounters(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const targetSection = document.getElementById('counter-section');
+    if (targetSection) {
+        counterObserver.observe(targetSection);
+    }
+
+    function startCounters(section) {
+        const counters = section.querySelectorAll('.stat-number');
+        const speed = 200;
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText.replace('+', '');
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+            updateCount();
+        });
+    }
+</script>
+{% endblock %}
