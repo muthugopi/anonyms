@@ -10,17 +10,21 @@ from django.utils.decorators import method_decorator
 
 @method_decorator(csrf_exempt, name='dispatch')         
 #add the login required mixin after the testing -> this is essential 
-class CreatePost(View):
+class CreatePost(LoginRequiredMixin,View):
     login_url = '/auth/login/'
     def post(self, request, id):
-        data = json.loads(request.body)
-        print("Title : " +data['title'])
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        print("Title:", title)
         user = User.objects.get(id=id)
-        new_post = Post(user = user, title = data['title'], description = data['description'])
-        new_post.save()
+        Post.objects.create(
+            user=user,
+            title=title,
+            description=description
+        )
         return redirect('/post/')
     
-class ShowPost( View):
+class ShowPost(LoginRequiredMixin ,View):
     def get(self, request):
         login_url = '/auth/login/'
         context = {
@@ -29,7 +33,7 @@ class ShowPost( View):
         
         return render(request, 'post/post.html', context)
 
-class DeletePost(View):
+class DeletePost(LoginRequiredMixin, View):
     def post(self, request, id):
         post = Post.objects.get(pk=id)
         post.delete()

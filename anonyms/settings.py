@@ -26,9 +26,7 @@ SECRET_KEY = 'django-insecure-czi-c*wb0^gy^8yg6ggss^4nnm16_nr(bf%6j*y(r&qbflliu3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'anonyms.onrender.com'
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -54,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'authentication.middleware.VerificationMiddleware',
 ]
 
 ROOT_URLCONF = 'anonyms.urls'

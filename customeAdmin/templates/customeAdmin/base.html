@@ -8,70 +8,321 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    {% block extra_css %} {% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --sidebar-width: 240px;
+            --header-height: 56px;
+            --nav-radius: 7px;
+            --transition-speed: 150ms;
+            --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-base);
+            font-size: 14px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: var(--sidebar-width);
+            min-width: var(--sidebar-width);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+        .sidebar::-webkit-scrollbar { display: none; }
+
+        .sidebar-brand {
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-bottom: 1px solid var(--bs-border-color-translucent);
+            flex-shrink: 0;
+        }
+
+        .sidebar-brand-name {
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .sidebar-brand-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .sidebar-section-label {
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            padding: 0 12px;
+            margin-bottom: 4px;
+        }
+
+        .nav-link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 12px;
+            border-radius: var(--nav-radius);
+            font-size: 13.5px;
+            font-weight: 450;
+            text-decoration: none;
+            transition: background var(--transition-speed) ease,
+                        color var(--transition-speed) ease;
+            line-height: 1;
+        }
+
+        .nav-link-item i {
+            font-size: 15px;
+            width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+            opacity: 0.8;
+        }
+
+        .nav-link-item:not(.active):not(.nav-danger) {
+            color: var(--bs-secondary-color);
+        }
+        .nav-link-item:not(.active):not(.nav-danger):hover {
+            background: var(--bs-tertiary-bg);
+            color: var(--bs-body-color);
+        }
+        .nav-link-item:not(.active):not(.nav-danger):hover i {
+            opacity: 1;
+        }
+
+        .nav-link-item.active {
+            background: var(--bs-primary-bg-subtle);
+            color: var(--bs-primary-text-emphasis);
+            font-weight: 500;
+        }
+        .nav-link-item.active i { opacity: 1; }
+
+        .nav-danger {
+            color: var(--bs-danger-text-emphasis) !important;
+        }
+        .nav-danger:hover {
+            background: var(--bs-danger-bg-subtle) !important;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding: 12px;
+            border-top: 1px solid var(--bs-border-color-translucent);
+            flex-shrink: 0;
+        }
+
+        /* ── Top Header ── */
+        .top-header {
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            border-bottom: 1px solid var(--bs-border-color-translucent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-shrink: 0;
+        }
+
+        .page-title {
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: 0;
+            margin: 0;
+        }
+
+        .admin-badge {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--bs-border-color-translucent);
+            color: var(--bs-secondary-color);
+            background: var(--bs-tertiary-bg);
+            line-height: 1.5;
+        }
+
+        /* ── Mobile toggle ── */
+        .mobile-toggle {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 7px;
+            border: 1px solid var(--bs-border-color-translucent);
+            background: transparent;
+            color: var(--bs-body-color);
+            cursor: pointer;
+            transition: background var(--transition-speed);
+        }
+        .mobile-toggle:hover { background: var(--bs-tertiary-bg); }
+
+        /* ── Main content area ── */
+        .main-content {
+            flex: 1 1 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 28px 28px;
+        }
+
+        /* ── Offcanvas sidebar (mobile) ── */
+        @media (max-width: 767.98px) {
+            .content-area {
+                padding: 20px 16px;
+            }
+
+            .top-header {
+                padding: 0 16px;
+            }
+        }
+
+        /* ── Scrollbar style for sidebar ── */
+        .sidebar { scrollbar-gutter: stable; }
+
+        /* ── Block-level utility tweaks ── */
+        .min-vh-100 { min-height: 100vh; }
+    </style>
+
+    {% block extra_css %}{% endblock %}
 </head>
 
 <body class="bg-body-tertiary text-body">
 
     <div class="d-flex min-vh-100">
 
-        <aside class="d-none d-md-flex flex-column vh-100 bg-body border-end position-sticky top-0 overflow-y-auto" style="min-width: 280px; max-width: 280px;">
-            
-            <div class="p-4 border-bottom border-light-subtle">
-                <h5 class="fw-bold mb-0 d-flex align-items-center gap-2 text-body-emphasis">
-                    <span class="bg-primary text-white d-flex align-items-center justify-content-center rounded-3 fw-bold text-center shadow-sm" style="width: 32px; height: 32px; font-size: 0.95rem;">A</span> 
-                    <span>ConsoleAdmin</span>
-                </h5>
+        <!-- ── Sidebar (desktop) ── -->
+        <aside class="sidebar bg-body border-end d-none d-md-flex flex-column">
+
+            <div class="sidebar-brand gap-2">
+                <span class="sidebar-brand-dot bg-primary"></span>
+                <span class="sidebar-brand-name text-body-emphasis">Admin Panel</span>
             </div>
 
-            <nav class="p-3 flex-grow-1 d-flex flex-column gap-1">
-                <div class="mb-2 ps-3 text-uppercase text-body-secondary fw-bold" style="font-size: 0.7rem; letter-spacing: 0.08em;">Menu</div>
+            <nav class="p-3 flex-grow-1 d-flex flex-column" style="gap: 2px;">
+                <div class="sidebar-section-label text-body-tertiary mb-2 mt-1">Navigation</div>
 
-                <a href="#" class="link-secondary d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-decoration-none fw-medium">
-                    <i class="bi bi-grid fs-5"></i> <span class="small">Dashboard</span>
+                <a href="/" class="nav-link-item">
+                    <i class="bi bi-house" aria-hidden="true"></i>
+                    <span>Home</span>
                 </a>
-                
-                <a href="{% url 'admin-dashboard' %}" class="d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-decoration-none bg-primary-subtle text-primary-emphasis fw-semibold">
-                    <i class="bi bi-people fs-5"></i> <span class="small">Users</span>
+
+                <a href="{% url 'admin-dashboard' %}" class="nav-link-item active">
+                    <i class="bi bi-people" aria-hidden="true"></i>
+                    <span>Users</span>
                 </a>
-                
-                <a href="#" class="link-secondary d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-decoration-none fw-medium">
-                    <i class="bi bi-hdd-stack fs-5"></i> <span class="small">Database</span>
+
+                <a href="/post" class="nav-link-item">
+                    <i class="bi bi-hdd-stack" aria-hidden="true"></i>
+                    <span>Posts</span>
                 </a>
-                
-                <a href="#" class="link-secondary d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-decoration-none fw-medium">
-                    <i class="bi bi-gear fs-5"></i> <span class="small">Settings</span>
+
+                <a href="#" class="nav-link-item">
+                    <i class="bi bi-gear" aria-hidden="true"></i>
+                    <span>Settings</span>
                 </a>
             </nav>
 
-            <div class="p-3 border-top border-light-subtle mt-auto">
-                <a href="{% url 'logout' %}" class="link-danger d-flex align-items-center gap-3 px-3 py-2 rounded-3 text-decoration-none fw-medium">
-                    <i class="bi bi-box-arrow-left fs-5"></i> <span class="small">Sign Out</span>
+            <div class="sidebar-footer">
+                <a href="{% url 'logout' %}" class="nav-link-item nav-danger">
+                    <i class="bi bi-box-arrow-left" aria-hidden="true"></i>
+                    <span>Sign out</span>
                 </a>
             </div>
+
         </aside>
 
-        <main class="flex-grow-1 d-flex flex-column min-w-0">
+        <!-- ── Mobile offcanvas sidebar ── -->
+        <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel"
+             style="width: var(--sidebar-width); max-width: 85vw;">
+            <div class="offcanvas-header border-bottom px-3 py-0" style="height: var(--header-height);">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="sidebar-brand-dot bg-primary"></span>
+                    <span class="sidebar-brand-name text-body-emphasis" id="mobileSidebarLabel">Admin Panel</span>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body p-3 d-flex flex-column" style="gap: 2px;">
+                <div class="sidebar-section-label text-body-tertiary mb-2 mt-1">Navigation</div>
 
-            <header class="d-flex align-items-center justify-content-between px-4 px-lg-5 bg-body border-bottom position-sticky top-0 z-3" style="min-height: 72px;">
+                <a href="/" class="nav-link-item">
+                    <i class="bi bi-house" aria-hidden="true"></i>
+                    <span>Home</span>
+                </a>
+
+                <a href="{% url 'admin-dashboard' %}" class="nav-link-item active">
+                    <i class="bi bi-people" aria-hidden="true"></i>
+                    <span>Users</span>
+                </a>
+
+                <a href="/post" class="nav-link-item">
+                    <i class="bi bi-hdd-stack" aria-hidden="true"></i>
+                    <span>Posts</span>
+                </a>
+
+                <a href="#" class="nav-link-item">
+                    <i class="bi bi-gear" aria-hidden="true"></i>
+                    <span>Settings</span>
+                </a>
+
+                <div class="mt-auto pt-3 border-top">
+                    <a href="{% url 'logout' %}" class="nav-link-item nav-danger">
+                        <i class="bi bi-box-arrow-left" aria-hidden="true"></i>
+                        <span>Sign out</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── Main ── -->
+        <main class="main-content">
+
+            <header class="top-header bg-body">
                 <div class="d-flex align-items-center gap-3">
-                    <button class="btn btn-light d-md-none border p-2 rounded-3" type="button" aria-label="Toggle Navigation">
-                        <i class="bi bi-list fs-5"></i>
+                    <button class="mobile-toggle d-md-none"
+                            type="button"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#mobileSidebar"
+                            aria-controls="mobileSidebar"
+                            aria-label="Open navigation">
+                        <i class="bi bi-list" style="font-size: 16px;"></i>
                     </button>
-                    <h4 class="mb-0 fs-6 fw-bold text-body-emphasis text-uppercase" style="letter-spacing: 0.5px;">
+                    <h1 class="page-title text-body-emphasis">
                         {% block page_title %}Overview{% endblock %}
-                    </h4>
+                    </h1>
                 </div>
 
-                <div class="d-flex align-items-center gap-3">
-                    <span class="small text-body-secondary fw-semibold d-none d-sm-inline">Admin User</span>
-                    <div class="bg-body-secondary text-body-emphasis border rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm" style="width: 38px; height: 38px; font-size: 0.85rem;">
-                        AU
-                    </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="admin-badge d-none d-sm-inline">Admin</span>
                 </div>
             </header>
 
-            <div class="p-4 p-lg-5 flex-grow-1">
+            <div class="content-area">
                 {% block content %}
                 {% endblock %}
             </div>

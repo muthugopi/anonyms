@@ -1,17 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from .managers import UserManager
 
 class User(AbstractUser):
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    username = None
     email = models.EmailField(
         unique=True
     )
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
     register_number = models.CharField(
         null=True, unique=True, max_length=12
     )
     department = models.CharField(
-        null = True, max_length=3
+        null=True, max_length=20
     )
     graduation_year = models.IntegerField(null=True)
     verified_choices = (
@@ -19,8 +24,9 @@ class User(AbstractUser):
         ('pending' , 'Pending'),
         ('verified' , 'Verified')
     )
-    roles_choice = ((0, "student"), (1, 'moderator'), (2, 'admin'))
+    roles_choice = (('student', 'Student'), ('moderator', 'Moderator'), ('admin', 'Admin'))
     is_verified = models.CharField(choices=verified_choices, max_length=20, default='not-verified')
     role = models.CharField(choices=roles_choice, null=True, max_length=10, default='student')
+
     def __str__(self):
-        return self.register_number
+        return self.email
