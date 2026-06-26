@@ -47,3 +47,10 @@ class DeleteUser(LoginRequiredMixin, View):
         user.delete()
         return redirect('/dashboard/users')
     
+
+class PromoteToModeratorView(View):
+    def post(self, request, id):
+        user = User.objects.get(pk = id)
+        user.role = 'moderator'
+        user.save()
+        return redirect('/dashboard/users/')
