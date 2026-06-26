@@ -228,7 +228,7 @@ anonyms/
 **1. Clone the repository**
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/muthugopi/anonymc.git
 cd anonyms
 ```
 
@@ -425,7 +425,7 @@ This project is licensed under the MIT License.
 ```
 MIT License
 
-Copyright (c) 2025 [Author Name]
+Copyright (c) 2026 [Muthugopi J]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
